@@ -1,0 +1,177 @@
+\chapter{INDIVIDUAL CONTRIBUTIONS} \label{ch:data}
+%\usepackage{booktabs} % Add this to preamble for \toprule, \midrule, \bottomrule
+
+
+This section outlines the division of responsibilities among team members for the Multi-Tenant E-Commerce System. Each team member was assigned specific functional modules and has developed the corresponding domain classes to implement those features.
+
+\section*{Team Member Assignments}
+
+\begin{enumerate}
+
+\item \textbf{Tanvir Alam Shihab} \\
+\textit{Assigned Modules:} Vendor Registration, Subscription, Secure Authentication, Multi-Tenant Data Isolation and Security \\
+\textit{Classes Implemented:} 
+\subsection*{Core Classes}
+The foundation of the e-commerce system consists of five primary entities that form the backbone of all operations:
+
+\begin{itemize}
+    \item \textbf{Vendor:} Represents the merchant or seller in the system. Contains essential business information including registration details, tax identification (tinNumber), trade license, and authentication credentials. Vendors can register, login, manage their profile, and access their personalized dashboard showing key metrics and operations.
+    
+    \item \textbf{Customer:} Represents the end-user who purchases products. Stores personal information, preferences, and tracks order history. Customers can register, login, update their profile, and view their complete order history with status tracking.
+    
+    \item \textbf{Product:} The core commercial entity containing all product-related information such as pricing, inventory levels, SKU, and categorization. Products can have their stock updated, availability checked, discounts applied, and customer reviews retrieved.
+    
+    \item \textbf{Order:} Captures complete transaction information including order status, payment method, shipping details, and total amount. Orders support total calculation, status updates, payment processing, and cancellation workflows.
+    
+    \item \textbf{OrderItem:} Line items within an order, tracking quantity, unit price, and subtotal for each product. Provides subtotal calculation for individual items.
+    
+    \item \textbf{Cart:} Temporary storage for customer's selected items before checkout. Manages shopping sessions with add/remove operations, quantity updates, and automatic expiration.
+\end{itemize}
+
+\subsection*{FR-01: Registration \& Authentication}
+Handles vendor and customer identity management with multi-factor authentication support:
+
+\begin{itemize}
+    \item \textbf{Subscription:} Manages vendor subscription plans including plan types, payment status, auto-renewal, and subscription lifecycle operations (renew, cancel, upgrade, status check).
+    
+    \item \textbf{LoginSession:} Tracks user sessions with device information, IP addresses, and active session management. Supports session validation and manual termination.
+    
+    \item \textbf{OTP:} Implements one-time password functionality for two-factor authentication and verification processes. Includes OTP generation, verification, expiration checking, and attempt tracking.
+\end{itemize}
+
+\subsection*{FR-02: Multi-Tenant Architecture}
+Manages database isolation and tenant-specific infrastructure:
+
+\begin{itemize}
+    \item \textbf{Tenant:} Represents a vendor's isolated database environment with connection details, storage quotas, and activation status. Supports tenant initialization, backup operations, and quota monitoring.
+    
+    \item \textbf{DatabaseInstance:} Manages physical or virtual database servers hosting multiple tenants. Includes server addressing, port configuration, health monitoring, and tenant distribution management.
+\end{itemize}
+
+\item \textbf{Murad Hossain Rohan} \\
+\textit{Assigned Modules:} Offers and Discounts Scheme Creation, Themes and Interface Customization \\
+\textit{Classes Implemented:}
+\subsection*{FR-03: Offers \& Discounts}
+Handles promotional campaigns and discount management:
+
+\begin{itemize}
+    \item \textbf{Discount:} Defines discount rules including type (percentage/fixed), value, validity period, redemption limits, and minimum purchase requirements. Supports discount validation, application, and redemption tracking.
+    
+    \item \textbf{Offer:} Manages broader promotional campaigns with titles, descriptions, applicable products, and active status. Provides offer activation/deactivation and product validation.
+    
+    \item \textbf{DiscountProduct:} Junction entity linking discounts to specific products, tracking when discounts were applied and allowing removal from products.
+\end{itemize}
+
+\subsection*{FR-04: Themes \& Customization}
+Enables storefront personalization and visual branding:
+
+\begin{itemize}
+    \item \textbf{Theme:} Pre-designed visual templates with configuration options, preview images, pricing, and purchase tracking. Supports theme application, preview, purchase, and export functionality.
+    
+    \item \textbf{StoreCustomization:} Fine-grained visual customization including color schemes (primary, secondary, background), typography, button styles, and header configurations. Provides theme application, reset capabilities, and color validation.
+\end{itemize}
+
+\item \textbf{Naosin Tabassum Lineya} \\
+\textit{Assigned Modules:} Payment Gateway Integration, Order Payment Handling, Product Delivery Tracking via Third-Party Logistics \\
+\textit{Classes Implemented:}
+\subsection*{FR-05: Payment Processing}
+Handles financial transactions and payment gateway integration:
+
+\begin{itemize}
+    \item \textbf{Payment:} Records individual payments with transaction IDs, amounts, methods, and gateway responses. Supports payment processing, refunds, voids, and status tracking.
+    
+    \item \textbf{PaymentGateway:} Manages integration with external payment providers including API credentials, supported currencies, and gateway configuration. Provides payment processing, transaction verification, and refund capabilities.
+    
+    \item \textbf{TransactionLog:} Maintains audit trail of all payment operations with request/response data, status codes, and timestamps for debugging and compliance.
+\end{itemize}
+
+\subsection*{FR-06: Delivery Tracking}
+Manages order fulfillment and shipment tracking:
+
+\begin{itemize}
+    \item \textbf{Delivery:} Central delivery entity tracking orders from dispatch to delivery, including courier assignment, tracking numbers, estimated/actual delivery dates, and recipient information. Supports status updates, package tracking, delivery estimation, and customer notifications.
+    
+    \item \textbf{Shipment:} Represents physical shipment instances with current location, status, and remarks. Provides location and status updates throughout the journey.
+    
+    \item \textbf{CourierService:} Integrates with external shipping providers through APIs, managing service availability, supported areas, and rate calculation. Handles shipment creation, tracking, and cancellation.
+    
+    \item \textbf{TrackingUpdate:} Captures granular shipment milestones including status changes, location updates, and timestamps for complete delivery timeline visualization.
+\end{itemize}
+
+
+\item \textbf{Marufa} \\
+\textit{Assigned Modules:} Inventory Management and Analytics Dashboard \\
+\textit{Classes Implemented:}
+\subsection*{FR-07: Inventory Management}
+Controls stock levels and product categorization:
+
+\begin{itemize}
+    \item \textbf{Inventory:} Tracks product quantities including on-hand stock, reserved items, reorder points, and warehouse locations. Supports stock adjustments, reservations, releases, and automated reorder triggering.
+    
+    \item \textbf{Category:} Hierarchical product categorization with parent-child relationships, enabling organized product browsing. Manages product assignments and subcategory navigation.
+    
+    \item \textbf{StockMovement:} Records all inventory transactions with movement types (receipt, sale, adjustment, return), quantities, and reference IDs for complete auditability.
+\end{itemize}
+\subsection*{FR-08: Analytics Dashboard}
+Provides business intelligence and performance monitoring:
+
+\begin{itemize}
+    \item \textbf{Analytics:} Configurable reporting engine generating various business reports with date ranges and data exports. Supports report generation, data export, and period-over-period comparisons.
+    
+    \item \textbf{SalesReport:} Specialized sales analysis including total sales, order counts, average order values, top products, and revenue trends. Provides trend analysis and sales forecasting.
+    
+    \item \textbf{KPI:} Real-time key performance indicator tracking with current/previous values, percentage changes, and target setting for performance monitoring.
+\end{itemize}
+
+\item \textbf{Taskif Bin Parves} \\
+\textit{Assigned Modules:} Promotional Notification Management, Customer Feedback, Review, and Rating System \\
+\textit{Classes Implemented:}
+\subsection*{FR-09: Notification Management}
+Handles customer communication and marketing campaigns:
+
+\begin{itemize}
+    \item \textbf{Notification:} Manages outbound communications across multiple channels (email, SMS, push) with content, scheduling, and delivery tracking capabilities.
+    
+    \item \textbf{Campaign:} Orchestrates marketing initiatives with targeted messaging, scheduling, and performance analytics including open rates and engagement metrics.
+    
+    \item \textbf{CustomerSegment:} Defines dynamic customer groups based on criteria (purchase history, preferences, behavior) for targeted marketing and personalized communications.
+    
+    \item \textbf{NotificationLog:} Tracks individual notification delivery status including sent, delivered, and opened timestamps for engagement analysis.
+\end{itemize}
+\subsection*{FR-10: Review \& Rating}
+Manages customer feedback and product ratings:
+
+\begin{itemize}
+    \item \textbf{Review:} Customer-generated product feedback with ratings, comments, and helpfulness counters. Supports submission, moderation, helpfulness marking, and reporting.
+    
+    \item \textbf{Rating:} Aggregated product ratings with distribution statistics (1-5 stars), average calculations, and total review counts for at-a-glance quality assessment.
+    
+    \item \textbf{ReviewFlag:} Moderation tool for flagging inappropriate content with reason tracking, status management, and resolution workflows.
+    
+    \item \textbf{ReviewResponse:} Enables vendor replies to customer reviews, fostering engagement and addressing feedback publicly.
+\end{itemize}
+
+\end{enumerate}
+
+\subsection*{Summary of Module Distribution}
+
+\begin{table}[H]
+\centering
+\caption{Team Member Responsibilities and Class Distribution}
+\label{tab:team-responsibilities}
+\begin{tabular}{>{\raggedright\arraybackslash}p{4cm}>{\raggedright\arraybackslash}p{5cm}>{\centering\arraybackslash}p{2.5cm}}
+\toprule
+\textbf{Team Member} & \textbf{Assigned Modules} & \textbf{Classes Count} \\
+\midrule
+Tanvir Alam Shihab & Vendor Registration, Subscription, Authentication, Multi-Tenant Security & 11 \\
+\midrule
+Murad Hossain Rohan & Offers, Discounts, Themes, Store Customization & 5 \\
+\midrule
+Naosin Tabassum Lineya & Payment Gateway, Payment Handling, Delivery Tracking & 7 \\
+\midrule
+Marufa & Inventory Management, Analytics Dashboard & 6 \\
+\midrule
+Taskif Bin Parves & Promotional Notifications, Customer Feedback, Reviews & 8 \\
+\bottomrule
+\end{tabular}
+\end{table}
