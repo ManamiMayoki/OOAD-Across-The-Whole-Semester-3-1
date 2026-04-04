@@ -1,0 +1,101 @@
+\chapter{INDIVIDUAL CONTRIBUTIONS} \label{ch:data}
+%\usepackage{booktabs} % Add this to preamble for \toprule, \midrule, \bottomrule
+
+
+This section outlines the division of responsibilities among team members for the Multi-Tenant E-Commerce System. Each team member was assigned specific functional modules and has developed the corresponding domain classes to implement those features.
+
+\section*{Team Member Assignments}
+
+\begin{enumerate}
+
+\item \textbf{Tanvir Alam Shihab} \\
+\textit{Assigned Modules:} Vendor Registration, Subscription, Secure Authentication, Multi-Tenant Data Isolation and Security \\
+\textit{Classes Implemented:} 
+\begin{itemize}
+    \item \textbf{Vendor} - Manages vendor profiles and credentials
+    \item \textbf{Customer} - Handles customer information and accounts
+    \item \textbf{Order} - Represents customer purchase transactions
+    \item \textbf{OrderItem} - Details individual items within an order
+    \item \textbf{Cart} - Manages temporary shopping cart contents
+    \item \textbf{Subscription} - Controls vendor subscription plans and status
+    \item \textbf{LoginSession} - Tracks user authentication sessions
+    \item \textbf{OTP} - Manages one-time passwords for two-factor authentication
+    \item \textbf{Tenant} - Represents individual vendor tenants in the multi-tenant architecture
+    \item \textbf{DatabaseInstance} - Handles isolated database instances per tenant
+\end{itemize}
+
+\item \textbf{Murad Hossain Rohan} \\
+\textit{Assigned Modules:} Offers and Discounts Scheme Creation, Themes and Interface Customization \\
+\textit{Classes Implemented:}
+\begin{itemize}
+    \item \textbf{Discount} - Manages discount rules and configurations
+    \item \textbf{Offer} - Handles promotional offers and campaigns
+    \item \textbf{DiscountProduct} - Associates discounts with specific products
+    \item \textbf{Theme} - Controls storefront visual themes and layouts
+    \item \textbf{StoreCustomization} - Manages vendor-specific store customizations
+\end{itemize}
+
+\item \textbf{Naosin Tabassum Lineya} \\
+\textit{Assigned Modules:} Payment Gateway Integration, Order Payment Handling, Product Delivery Tracking via Third-Party Logistics \\
+\textit{Classes Implemented:}
+\begin{itemize}
+    \item \textbf{Payment} - Processes and records customer payments
+    \item \textbf{PaymentGateway} - Integrates with external payment providers
+    \item \textbf{TransactionLog} - Logs all payment transactions for auditing
+    \item \textbf{Delivery} - Manages order delivery information
+    \item \textbf{Shipment} - Tracks shipment details and status
+    \item \textbf{CourierService} - Integrates with third-party logistics providers
+    \item \textbf{TrackingUpdate} - Records real-time delivery status updates
+\end{itemize}
+
+\item \textbf{Marufa} \\
+\textit{Assigned Modules:} Inventory Management and Analytics Dashboard \\
+\textit{Classes Implemented:}
+\begin{itemize}
+    \item \textbf{Product} - Manages product information and attributes
+    \item \textbf{Category} - Organizes products into categories
+    \item \textbf{Inventory} - Tracks stock levels and availability
+    \item \textbf{StockMovement} - Records inventory changes and adjustments
+    \item \textbf{Analytics} - Generates business intelligence data
+    \item \textbf{SalesReport} - Creates detailed sales performance reports
+    \item \textbf{KPI} - Tracks key performance indicators for vendors
+\end{itemize}
+
+\item \textbf{Taskif Bin Parves} \\
+\textit{Assigned Modules:} Promotional Notification Management, Customer Feedback, Review, and Rating System \\
+\textit{Classes Implemented:}
+\begin{itemize}
+    \item \textbf{Notification} - Manages system and promotional notifications
+    \item \textbf{Campaign} - Handles marketing campaign configurations
+    \item \textbf{CustomerSegment} - Segments customers for targeted notifications
+    \item \textbf{NotificationLog} - Records sent notifications for audit purposes
+    \item \textbf{Review} - Manages customer product reviews
+    \item \textbf{Rating} - Handles numerical product ratings
+    \item \textbf{ReviewFlag} - Enables moderation of inappropriate reviews
+    \item \textbf{ReviewResponse} - Allows vendors to respond to customer reviews
+\end{itemize}
+
+\end{enumerate}
+
+\subsection*{Summary of Module Distribution}
+
+\begin{table}[h!]
+\centering
+\caption{Team Member Responsibilities and Class Distribution}
+\label{tab:team-responsibilities}
+\begin{tabular}{>{\raggedright\arraybackslash}p{4cm}>{\raggedright\arraybackslash}p{5cm}>{\centering\arraybackslash}p{2.5cm}}
+\toprule
+\textbf{Team Member} & \textbf{Assigned Modules} & \textbf{Classes Count} \\
+\midrule
+Tanvir Alam Shihab & Vendor Registration, Subscription, Authentication, Multi-Tenant Security & 10 \\
+\midrule
+Murad Hossain Rohan & Offers, Discounts, Themes, Store Customization & 5 \\
+\midrule
+Naosin Tabassum Lineya & Payment Gateway, Payment Handling, Delivery Tracking & 7 \\
+\midrule
+Marufa & Inventory Management, Analytics Dashboard & 7 \\
+\midrule
+Taskif Bin Parves & Promotional Notifications, Customer Feedback, Reviews & 8 \\
+\bottomrule
+\end{tabular}
+\end{table}
