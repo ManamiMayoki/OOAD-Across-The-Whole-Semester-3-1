@@ -16,13 +16,13 @@ This repository contains the structured documentation, UML diagrams, and modelin
 
 ## Team Members
 
-| Name                       | Roll No. |
-| :------------------------- | :------- |
-| **Tanvir Alam Shihab**     | 334      |
-| **Murad Hossain Rohan**    | 338      |
-| **K.M. Taskif Bin Parves** | 343      |
-| **Naosin Tabassum Lineya** | 364      |
-| **Marufa**                 | 365      |
+| Name                   | Roll No. |
+| :--------------------- | :------- |
+| Tanvir Alam Shihab     | 334      |
+| Murad Hossain Rohan    | 338      |
+| K.M. Taskif Bin Parves | 343      |
+| Naosin Tabassum Lineya | 364      |
+| Marufa                 | 365      |
 
 ### Supervisors
 
